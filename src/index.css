@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(99, 102, 241, 0.12), transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, rgba(14, 165, 233, 0.10), transparent 50%),
+      #f8fafc;
+  }
+  button, a, [role="button"], select, label[for], summary { cursor: pointer; }
+  button:disabled { cursor: not-allowed; opacity: 0.6; }
+  :focus-visible { outline: 3px solid #4f46e5; outline-offset: 2px; }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-bold transition active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/25 hover:from-indigo-700 hover:to-violet-700;
+  }
+  .btn-light {
+    @apply border border-slate-200 bg-white/90 text-slate-800 shadow-sm backdrop-blur hover:bg-slate-50;
+  }
+  .btn-danger {
+    @apply bg-gradient-to-r from-rose-600 to-red-600 text-white shadow-lg shadow-rose-500/20 hover:from-rose-700 hover:to-red-700;
+  }
+  .field {
+    @apply min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-900 shadow-sm transition focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/15;
+  }
+  .label { @apply mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-600; }
+  .card {
+    @apply rounded-2xl border border-white/60 bg-white/90 shadow-sm shadow-slate-200/60 backdrop-blur transition hover:shadow-md;
+  }
+  .stat-card {
+    @apply relative overflow-hidden rounded-2xl border border-white/60 bg-white/90 p-5 shadow-sm shadow-slate-200/60 backdrop-blur transition hover:shadow-md;
+  }
+  .stat-card::after {
+    content: "";
+    position: absolute;
+    inset: auto -20% -40% auto;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+}
