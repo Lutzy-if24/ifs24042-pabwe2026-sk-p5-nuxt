@@ -25,7 +25,6 @@ export default defineNuxtConfig({
   devServer: { port: customPort },
   nitro: {
     devPort: customPort,
-    // Halaman shell SPA dibuat statis agar CSS bisa di-inline (tanpa request CSS yang memblokir render).
     prerender: { routes: ["/auth/login", "/auth/register", "/200.html"], crawlLinks: false, failOnError: false },
   },
   hooks: {
@@ -51,14 +50,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: "icon", type: "image/svg+xml", href: "/logo.svg" },
-        { rel: "preconnect", href: "https://fonts.googleapis.com" },
-        { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
-        {
-          rel: "stylesheet",
-          media: "print",
-          onload: "this.media='all'",
-          href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap",
-        },
+        { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/plus-jakarta-sans-latin-wght-normal.woff2", crossorigin: "anonymous" },
       ],
       noscript: [{ innerHTML: "Aplikasi ini membutuhkan JavaScript untuk berjalan." }],
       bodyAttrs: { class: "bg-slate-50 text-slate-900 font-sans antialiased min-h-screen" },
