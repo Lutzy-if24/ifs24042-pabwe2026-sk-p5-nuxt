@@ -100,8 +100,8 @@ async function removeAll() {
 
   <section aria-labelledby="h-list" class="mt-6">
     <h2 id="h-list" class="text-lg font-bold">Daftar transaksi</h2>
-    <p v-if="store.isCashFlow" class="mt-2" role="status">Memuat transaksi...</p>
-    <p v-else-if="!store.cashFlows.length" class="mt-2 text-slate-700" role="status">Belum ada transaksi.</p>
+    <output v-if="store.isCashFlow" class="mt-2 block">Memuat transaksi...</output>
+    <output v-else-if="!store.cashFlows.length" class="mt-2 block text-slate-700">Belum ada transaksi.</output>
     <div v-else class="card mt-2 overflow-x-auto" role="region" aria-label="Tabel transaksi">
       <table class="w-full min-w-[40rem] text-left text-sm">
         <caption class="sr-only">Daftar transaksi arus kas</caption>
